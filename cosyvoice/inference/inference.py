@@ -36,11 +36,10 @@ def cosyvoice_zero_shot_inference(model_dir, tts_text, spk_id, test_data_dir, re
 
     if task_type == "zero-shot":
         # download your targer text
-        text = json.load(open(tts_text, 'r', encoding='utf-8'))[spk_id]['zero-shot'][0]
-        print("需要合成的文本内容：", text)
+        texts = json.load(open(tts_text, 'r', encoding='utf-8'))[spk_id]['zero-shot']
     elif task_type == "cross-lingual":
         # download your targer text
-        text = json.load(open(tts_text, 'r', encoding='utf-8'))[spk_id]['cross-lingual'][0]
+        texts = json.load(open(tts_text, 'r', encoding='utf-8'))[spk_id]['cross-lingual']
     elif task_type == "instruction":
         # download your targer text
         text = json.load(open(tts_text, 'r', encoding='utf-8'))[spk_id]['instruction-zero-shot']['text']
@@ -53,20 +52,19 @@ def cosyvoice_zero_shot_inference(model_dir, tts_text, spk_id, test_data_dir, re
 
     ## usage:zero-shot, cross-lingual, instruction
     if task_type == "zero-shot":
-        for _, outputs in enumerate(cosyvoice.inference_zero_shot(tts_text=text, prompt_text=prompt_text, prompt_speech_16k=prompt_speech_16k, stream=False)):
-            tts_fn = os.path.join(result_dir, f'zero_shot.wav')
-            torchaudio.save(tts_fn, outputs['tts_speech'], cosyvoice.sample_rate)
-            return tts_fn
+        for idx, text in enumerate(texts):
+            for _, outputs in enumerate(cosyvoice.inference_zero_shot(tts_text=text, prompt_text=prompt_text, prompt_speech_16k=prompt_speech_16k, stream=False)):
+                tts_fn = os.path.join(result_dir, f'zero_shot_{idx}.wav')
+                torchaudio.save(tts_fn, outputs['tts_speech'], cosyvoice.sample_rate)
     elif task_type == "cross-lingual":
-        for _, outputs in enumerate(cosyvoice.inference_cross_lingual(tts_text=text, prompt_speech_16k=prompt_speech_16k, stream=False)):
-            tts_fn = os.path.join(result_dir, f'cross_lingual_zero_shot.wav')
-            torchaudio.save(tts_fn, outputs['tts_speech'], cosyvoice.sample_rate)
-            return tts_fn
+        for idx, text in enumerate(texts):
+            for _, outputs in enumerate(cosyvoice.inference_cross_lingual(tts_text=text, prompt_speech_16k=prompt_speech_16k, stream=False)):
+                tts_fn = os.path.join(result_dir, f'cross_lingual_zero_shot_{idx}.wav')
+                torchaudio.save(tts_fn, outputs['tts_speech'], cosyvoice.sample_rate)
     elif task_type == "instruction":
         for _, outputs in enumerate(cosyvoice.inference_instruct2(tts_text=text, instruct_text=instruction, prompt_speech_16k=prompt_speech_16k, stream=False)):
             tts_fn = os.path.join(result_dir, f'instruction_zero_shot.wav')
             torchaudio.save(tts_fn, outputs['tts_speech'], cosyvoice.sample_rate)
-            return tts_fn
     else:
         return "请输入正确的task_type！"
     

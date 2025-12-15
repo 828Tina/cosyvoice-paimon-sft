@@ -2,7 +2,7 @@
 # Copyright 2024 Alibaba Inc. All Rights Reserved.
 . ./path.sh || exit 1;
 
-stage=1
+stage=0
 stop_stage=1
 
 data_dir=/data/tts-data/paimon_4k
@@ -13,7 +13,7 @@ output_model_dir=/data/tts-models/cosyvoice2-0.5b-paimon
 #######################################
 # 推理
 #######################################
-EXAMPLE_ID='3'
+EXAMPLE_ID='50'
 task_type=zero-shot
 spk_id=paimon
 
