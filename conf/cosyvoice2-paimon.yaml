@@ -219,7 +219,7 @@ train_conf:
 
 # swanlab
 swan:
-    api_key: VZGeIYrGPHqOwry2mv7Vy
+    api_key: your swanlab api_key
     project_name: paimon-cosyvoice
     experiment_name: cosyvoice2-paimon-llm+flowtrain
     description: paimon dataset llm+flow training
