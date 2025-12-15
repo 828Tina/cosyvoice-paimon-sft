@@ -1,0 +1,16 @@
+__pycache__/
+
+# Visual Studio Code files
+.vscode
+.vs
+
+# log
+tensorboard/
+swanlog/
+
+# output
+output/
+exp/
+data/
+*data/
+

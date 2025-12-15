@@ -1,0 +1,20 @@
+{
+  "paimon":{
+      "zero-shot": [
+      "今天天气很好，很适合外出游玩。"
+    ],
+    "cross-lingual": [
+      "Hello, my name is Paimon. I am a character from the game Genshin Impact. I love to explore the world with my traveler friend."
+    ],
+    "instruction-zero-shot": {
+      "instruction":"用广东话说这句话",
+      "text":"我觉得璃月的火锅很好吃！"
+    },
+    "sft_inference":[
+      "作业写完了吗？",
+      "有任何问题都可以来找我，我可是提瓦特最棒的、最厉害的、知道的最多的向导！",
+      "我还没去看过天安门呢。",
+      "不会吧？！我完全没有察觉到！而且，一路上他好像就没有怎么用过炼金术…"
+    ]
+  }
+}
