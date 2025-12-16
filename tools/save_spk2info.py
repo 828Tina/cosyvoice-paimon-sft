@@ -2,7 +2,7 @@ import os
 import json
 import argparse
 import sys
-sys.path.append('/home/lxy/tts_project/CosyVoice/third_party/Matcha-TTS')
+sys.path.append('/home/lxy/tts_project/cosyvoice-paimon-sft/third_party/Matcha-TTS')
 from cosyvoice.inference.inference import CosyVoiceSpeakerInference
 
 import shutil
