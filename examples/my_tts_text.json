@@ -1,21 +1,21 @@
 {
   "paimon":{
       "zero-shot": [
-      "卖唱的怎么又跑去喝酒了！",
-      "你知道昨天那个新闻吗？",
-      "音频大模型是用海量声音数据训练、能一次性听懂生成说话音乐噪声的“万能声学大脑”。"
+      "欸！蒙德城的修女还能负责抓捕可疑人士的吗？！",
+      "现代科技让世界变得更加紧密相连。",
+      "啊啊啊！真是让人生气！他怎么可以这样说！我明明不是那样的人！"
     ],
     "cross-lingual": [
-      "Hello, my name is Paimon. I am a character from the game Genshin Impact. I love to explore the world with my traveler friend."
+      "Has the author of my issue seen it?"
     ],
     "instruction-zero-shot": {
-      "instruction":"用广东话说这句话",
-      "text":"我觉得璃月的火锅很好吃！"
+      "instruction":"用四川话说这句话",
+      "text":"走哦兄弟，楼下新开的火锅店巴适得板，味道绝了，我们整起，保证吃得你肚皮圆滚滚！"
     },
     "sft_inference":[
-      "卖唱的怎么又跑去喝酒了！",
-      "你知道昨天那个新闻吗？",
-      "音频大模型是用海量声音数据训练、能一次性听懂生成说话音乐噪声的“万能声学大脑”。"
+      "欸！蒙德城的修女还能负责抓捕可疑人士的吗？！",
+      "现代科技让世界变得更加紧密相连。",
+      "啊啊啊！真是让人生气！他怎么可以这样说！我明明不是那样的人！"
     ]
   }
 }

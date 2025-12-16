@@ -72,29 +72,6 @@ def cosyvoice_zero_shot_inference(model_dir, tts_text, spk_id, test_data_dir, re
 # sft inference
 class CosyVoiceSpeakerInference:
     def __init__(self, spk_id:str, model_dir:str):
-        """
-        该部分做SFT之后的推理，使用CosyVoice中的inference_sft函数，这个函数只需要两个参数：
-        tts_text: target audio content
-        spk_id: speaker id equal to speaker embedding(an example audio speaker emb OR averge data speaker emb)
-
-        只要微调后，让模型学会某个人说话的语音、音色等，直接用该角色对应的embedding作为v就可以生成target content
-        spk_id应该对应spk2info.pt中的id序号，因此需要先save这个文件
-
-        这个文件其实在模型sft的时候经过0-3步骤已经生成，其实具体在run.sh的步骤1中实现
-        生成的spk2embedding.pt and utt2embedding.pt就是我们要的
-
-        utt2embedding.pt是所有的数据集的embedding
-        spk2embedding.pt是所有数据集的embedding取平均
-
-        因此我们可以直接使用这个保存文件，因为有多个人，可以保存到一个文件里，然后读取的时候直接读对应的spk_id就行
-        
-        因此我们有如下函数：
-        1. save_spk2info: 保存对应speaker的embedding，并将spk2info.pt文件保存到output_model_path中
-        2. load_spk2emb: 读取原始的spk2embedding.pt文件
-        3. speaker_inference: 对应speaker的推理结果 
-        
-        :param self: Description
-        """
         # 你需要设置的spk_id
         self.spk_id = spk_id
         # 你的模型地址
